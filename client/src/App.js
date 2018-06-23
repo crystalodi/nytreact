@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Jumbotron from "./components/Jumbotron";
 import Container from "./components/Container";
+import Home from "./pages/Home"
 class App extends Component {
   render() {
     return (
       <Container>
         <Jumbotron/>
+        <Home/>
       </Container>
     );
   }
