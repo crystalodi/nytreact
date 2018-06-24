@@ -4,6 +4,7 @@ import Column from "../../components/Column";
 import Card from "../../components/Card"
 import {Button, Input, Label, FormGroup} from "../../components/Form";
 import API from "../../utils/API";
+import Results from "../../components/Results";
 class Home extends Component {
     state = {
         searchTerm: "",
@@ -55,7 +56,11 @@ class Home extends Component {
                 <Row className="row mb-4">
                     <Column size="col-md-12">
                         <Card cardtitle="Search Results">
-                            <h1>Coming Soon</h1>
+                            <Row className="row">
+                            {this.state.articles.map((article, index) => (
+                                <Results key={index} index={index + 1} title={article.title} target="_blank" url={article.url}/>
+                            ))}
+                            </Row>
                         </Card>
                     </Column>
                 </Row>
