@@ -25,7 +25,7 @@ class Home extends Component {
             q: this.state.searchTerm
         }
         API.articleSearch(params).then(response=>this.setState({
-            articles: response.data
+            articles: response
         }, () => console.log(this.state)));
     }
     render() {
@@ -56,13 +56,17 @@ class Home extends Component {
                     </Card>
                 </Column>
             </Row>
-            <Row className="row mb-4">
-                <Column size="col-md-12">
-                    <Card cardtitle="Search Results">
-                        <h1>Coming Soon</h1>
-                    </Card>
-                </Column>
-            </Row>
+            {this.state.articles.length ? (
+                <Row className="row mb-4">
+                    <Column size="col-md-12">
+                        <Card cardtitle="Search Results">
+                            <h1>Coming Soon</h1>
+                        </Card>
+                    </Column>
+                </Row>
+            ): (
+                <div></div>
+            )}
             </React.Fragment>
         )
     }
