@@ -22,7 +22,8 @@ class Home extends Component {
     }
     render() {
         return (
-            <Row>
+            <React.Fragment>
+            <Row className="row mb-4">
                 <Column size="col-md-12">
                     <Card cardtitle="Search">
                         <form>
@@ -36,17 +37,25 @@ class Home extends Component {
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="startYear">Start Year (Optional)</Label>
-                                <Input type="text" onChange={this.handleInputChange} id="startYear" name="startYear"/>
+                                <Input type="text" onChange={this.handleInputChange} id="startYear" name="startYear" placeholder="Start Year"/>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="endYear">End Year (Optional)</Label>
-                                <Input type="text" onChange={this.handleInputChange} id="endYear" name="endYear"/>
+                                <Input type="text" onChange={this.handleInputChange} id="endYear" name="endYear" placeholder="End Year"/>
                             </FormGroup>
                             <Button onClick={this.handleFormSubmit} className="btn btn-primary">Submit</Button>
                         </form>
                     </Card>
                 </Column>
-            </Row> 
+            </Row>
+            <Row className="row mb-4">
+                <Column size="col-md-12">
+                    <Card cardtitle="Search Results">
+                        <h1>Coming Soon</h1>
+                    </Card>
+                </Column>
+            </Row>
+            </React.Fragment>
         )
     }
 }
