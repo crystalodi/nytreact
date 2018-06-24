@@ -8,9 +8,14 @@ const articleSchema = new Schema({
     },
     date: {
         type: Date,
-        required: true
+        required: true,
+        default: Date.now()
     },
     url: {
+        type: String,
+        required: true
+    },
+    articleID : {
         type: String,
         required: true
     }

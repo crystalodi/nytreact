@@ -7,7 +7,6 @@ import API from "../../utils/API";
 class Home extends Component {
     state = {
         searchTerm: "",
-        numResults: "",
         startYear: "",
         endYear: "",
         articles: []
@@ -38,10 +37,6 @@ class Home extends Component {
                             <FormGroup>
                                 <Label htmlFor="searchTerm">Search Term</Label>
                                 <Input type="text" onChange={this.handleInputChange} placeholder="Search Term" id="searchTerm" name="searchTerm"/>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="numResults">Number of Results</Label>
-                                <Input type="number" onChange={this.handleInputChange} id="numResults" name="numResults"/>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor="startYear">Start Year (Optional)</Label>
