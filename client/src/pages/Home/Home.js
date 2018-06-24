@@ -3,6 +3,7 @@ import Row from "../../components/Row";
 import Column from "../../components/Column";
 import Card from "../../components/Card"
 import {Button, Input, Label, FormGroup} from "../../components/Form";
+import API from "../../utils/API";
 class Home extends Component {
     state = {
         searchTerm: "",
@@ -19,6 +20,13 @@ class Home extends Component {
     }
     handleFormSubmit = event => {
         event.preventDefault();
+        console.log("about to search")
+        const params = {
+            q: this.state.searchTerm
+        }
+        API.articleSearch(params).then(response=>this.setState({
+            articles: response.data
+        }, () => console.log(this.state)));
     }
     render() {
         return (
