@@ -28,6 +28,10 @@ class Home extends Component {
             articles: response
         }, () => console.log(this.state)));
     }
+    saveArticle = articleID => {
+        const articleToSave = this.state.articles[this.state.articles.findIndex(article => articleID === article.articleID)]
+        console.log(articleToSave);
+    }
     render() {
         return (
             <React.Fragment>
@@ -58,7 +62,7 @@ class Home extends Component {
                         <Card cardtitle="Search Results">
                             <Row className="row">
                             {this.state.articles.map((article, index) => (
-                                <Results key={index} index={index + 1} title={article.title} target="_blank" url={article.url}/>
+                                <Results key={index} index={index + 1} title={article.title} target="_blank" url={article.url} saveArticle={this.saveArticle} articleID={article.articleID}/>
                             ))}
                             </Row>
                         </Card>
