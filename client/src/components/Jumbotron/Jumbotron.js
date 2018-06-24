@@ -1,7 +1,7 @@
 import React from "react";
 
 const Jumbotron = props => (
-    <div className="jumbotron mt-2">
+    <div className="jumbotron">
         <h1 className="display-1">NYT Search</h1>
     </div>
 )
