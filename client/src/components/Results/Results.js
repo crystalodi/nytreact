@@ -5,7 +5,7 @@ const Results = props => (
     <h3 className="display-3">
         <span className="label label-primary">{props.index}</span>
         <strong> {props.title}</strong>
-        <span className="glyphicon glyphicon-save saveicon pull-right" title={props.linktitle} onClick={()=> props.saveArticle(props.articleID)}></span>
+        <span className="glyphicon glyphicon-save saveicon pull-right" title={props.linktitle} onClick={()=> props.findArticle(props.articleID)}></span>
     </h3>
     
 )

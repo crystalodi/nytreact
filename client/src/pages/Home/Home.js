@@ -27,9 +27,18 @@ class Home extends Component {
             articles: response
         }, () => console.log(this.state)));
     }
-    saveArticle = articleID => {
+    findArticle = articleID => {
         const articleToSave = this.state.articles[this.state.articles.findIndex(article => articleID === article.articleID)]
-        console.log(articleToSave);
+        API.getArticle(articleID).then(response=> {
+            if(!response.data.length) {
+                this.saveArticle(articleToSave)
+            } else {
+                console.log("article already in the database")
+            }
+        })
+    }
+    saveArticle = articleToSave => {
+        API.saveArticle(articleToSave).then(response=> console.log(response.data))
     }
     render() {
         return (
@@ -57,7 +66,7 @@ class Home extends Component {
                 <Row className="row">
                     <Column size="col-md-12">  
                         {this.state.articles.map((article, index) => (
-                            <Results key={index} index={index + 1} title={article.title} saveArticle={this.saveArticle} articleID={article.articleID} linktitle="Save Article" onClick={this.saveArticle}/>
+                            <Results key={index} index={index + 1} title={article.title} findArticle={this.findArticle} articleID={article.articleID} linktitle="Save Article"/>
                         ))}
                     </Column>
                 </Row>
