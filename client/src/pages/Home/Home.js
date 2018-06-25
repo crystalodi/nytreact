@@ -66,7 +66,7 @@ class Home extends Component {
                 <Row className="row">
                     <Column size="col-md-12">  
                         {this.state.articles.map((article, index) => (
-                            <Results key={index} index={index + 1} title={article.title} findArticle={this.findArticle} articleID={article.articleID} linktitle="Save Article"/>
+                            <Results key={index} index={index + 1} title={article.title} findArticle={this.findArticle} articleID={article.articleID} linktitle="Save Article" iconToShow="glyphicon glyphicon-save saveicon pull-right"/>
                         ))}
                     </Column>
                 </Row>
