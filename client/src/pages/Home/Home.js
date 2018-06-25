@@ -56,11 +56,9 @@ class Home extends Component {
             {this.state.articles.length ? (
                 <Row className="row">
                     <Column size="col-md-12">  
-                        
                         {this.state.articles.map((article, index) => (
-                            <Results key={index} index={index + 1} title={article.title} target="_blank" url={article.url} saveArticle={this.saveArticle} articleID={article.articleID}/>
+                            <Results key={index} index={index + 1} title={article.title} saveArticle={this.saveArticle} articleID={article.articleID} linktitle="Save Article" onClick={this.saveArticle}/>
                         ))}
-                        
                     </Column>
                 </Row>
             ): (
