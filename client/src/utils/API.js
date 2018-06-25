@@ -16,5 +16,17 @@ export default {
             })
             return articles;
         })
+    },
+    saveArticle: (params) => {
+        return axios.post("/api/articles", params);
+    },
+    getArticles: () => {
+        return axios.get("/api/articles");
+    },
+    deleteArticle: (id) => {
+        return axios.delete("/api/articles/" + id);
+    },
+    getArticle: (id) => {
+        return axios.get("/api/articles/" + id)
     }
 }
