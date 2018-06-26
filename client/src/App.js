@@ -7,10 +7,16 @@ import Saved from "./pages/Saved";
 class App extends Component {
   render() {
     return (
+      <Router>
       <Container>
-        <Jumbotron/>
-        <Home/>
+        <Jumbotron />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/articles" component={Home} />
+          <Route exact path="/saved" component={Saved} />
+        </Switch>
       </Container>
+    </Router>
     );
   }
 }
