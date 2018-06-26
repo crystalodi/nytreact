@@ -23,22 +23,28 @@ class Home extends Component {
         const params = {
             q: this.state.searchTerm
         }
-        API.articleSearch(params).then(response=>this.setState({
+        API.articleSearch(params)
+        .then(response=>this.setState({
             articles: response
-        }, () => console.log(this.state)));
+        }))
+        .catch(err => console.log(err));
     }
     findArticle = articleID => {
         const articleToSave = this.state.articles[this.state.articles.findIndex(article => articleID === article.articleID)]
-        API.getArticle(articleID).then(response=> {
+        API.getArticle(articleID)
+        .then(response=> {
             if(!response.data.length) {
                 this.saveArticle(articleToSave)
             } else {
                 console.log("article already in the database")
             }
         })
+        .catch(err=> console.log(err))
     }
     saveArticle = articleToSave => {
-        API.saveArticle(articleToSave).then(response=> console.log(response.data))
+        API.saveArticle(articleToSave)
+        .then(response=> console.log(response.data))
+        .catch(err => console.log(err))
     }
     render() {
         return (
@@ -66,7 +72,7 @@ class Home extends Component {
                 <Row className="row">
                     <Column size="col-md-12">  
                         {this.state.articles.map((article, index) => (
-                            <Results key={index} index={index + 1} title={article.title} findArticle={this.findArticle} articleID={article.articleID} linktitle="Save Article" iconToShow="glyphicon glyphicon-save saveicon pull-right"/>
+                            <Results key={index} index={index + 1} title={article.title} clickHandler={this.findArticle} articleID={article.articleID} linktitle="Save Article" iconToShow="glyphicon glyphicon-save saveicon pull-right"/>
                         ))}
                     </Column>
                 </Row>

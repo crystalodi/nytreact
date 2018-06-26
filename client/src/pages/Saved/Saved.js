@@ -9,9 +9,16 @@ class Saved extends Component {
         articles: []
     }
     loadArticles = () => {
-        API.getArticles().then(response => this.setState({
+        API.getArticles()
+        .then(response => this.setState({
             articles: response.data
-        }, () => console.log(this.state)))
+        }))
+        .catch(err => console.log(err))
+    }
+    deleteFromSaved = (articleID) => {
+        API.deleteArticle(articleID)
+        .then(response => this.loadArticles())
+        .catch(err => console.log(err))
     }
     componentDidMount() {
         this.loadArticles();
@@ -19,9 +26,17 @@ class Saved extends Component {
     render() {
         return (
            <React.Fragment>
-               <Row>
-                
+            {this.state.articles.length ? (
+                <Row className="row">
+                    <Column size="col-md-12">  
+                        {this.state.articles.map((article, index) => (
+                            <Results key={index} index={index + 1} title={article.title} clickHandler={this.deleteFromSaved} articleID={article._id} linktitle="Remove Article From Saved" iconToShow="glyphicon glyphicon-remove saveicon pull-right"/>
+                        ))}
+                    </Column>
                 </Row>
+            ): (
+                <div></div>
+            )}
             </React.Fragment>
         )
     }
