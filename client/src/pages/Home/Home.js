@@ -4,6 +4,7 @@ import Column from "../../components/Column";
 import {Button, Input, Label, FormGroup} from "../../components/Form";
 import API from "../../utils/API";
 import Results from "../../components/Results";
+import Title from "../../components/Title";
 class Home extends Component {
     state = {
         searchTerm: "",
@@ -49,7 +50,12 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
-            <Row className="row">
+            <Row>
+                <Column size="col-md-12">
+                    <Title>Search Criteria</Title>
+                </Column>
+            </Row>
+            <Row>
                 <Column size="col-md-12">
                     <form>
                         <FormGroup>
@@ -69,7 +75,7 @@ class Home extends Component {
                 </Column>
             </Row>
             {this.state.articles.length ? (
-                <Row className="row">
+                <Row>
                     <Column size="col-md-12">  
                         {this.state.articles.map((article, index) => (
                             <Results key={index} index={index + 1} title={article.title} clickHandler={this.findArticle} articleID={article.articleID} linktitle="Save Article" iconToShow="glyphicon glyphicon-save saveicon pull-right"/>

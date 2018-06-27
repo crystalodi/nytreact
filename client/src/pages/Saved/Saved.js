@@ -3,7 +3,8 @@ import Row from "../../components/Row";
 import Column from "../../components/Column";
 import API from "../../utils/API";
 import Results from "../../components/Results";
-
+import Title from "../../components/Title";
+import NoArticles from "../../components/NoArticles";
 class Saved extends Component {
     state = {
         articles: []
@@ -22,12 +23,18 @@ class Saved extends Component {
     }
     componentDidMount() {
         this.loadArticles();
+        console.log(this.state)
     }
     render() {
         return (
            <React.Fragment>
+               <Row>
+                   <Column size="col-md-12">
+                        <Title>Saved Articles</Title>
+                    </Column>
+                </Row>
             {this.state.articles.length ? (
-                <Row className="row">
+                <Row>
                     <Column size="col-md-12">  
                         {this.state.articles.map((article, index) => (
                             <Results key={index} index={index + 1} title={article.title} clickHandler={this.deleteFromSaved} articleID={article._id} linktitle="Remove Article From Saved" iconToShow="glyphicon glyphicon-remove saveicon pull-right"/>
@@ -35,7 +42,11 @@ class Saved extends Component {
                     </Column>
                 </Row>
             ): (
-                <div></div>
+                <Row>
+                    <Column size="col-md-12">
+                        <NoArticles/>
+                    </Column>
+                </Row>
             )}
             </React.Fragment>
         )
