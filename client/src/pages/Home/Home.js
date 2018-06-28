@@ -74,19 +74,21 @@ class Home extends Component {
                     </form>
                 </Column>
             </Row>
-            <Row>
-                <Column size="col-md-12">
-                    <Title>Articles</Title>
-                </Column>
-            </Row>
             {this.state.articles.length ? (
+                <div>
+                <Row>
+                    <Column size="col-md-12">
+                        <Title>Articles</Title>
+                    </Column>
+                </Row>
                 <Row>
                     <Column size="col-md-12">  
                         {this.state.articles.map((article, index) => (
-                            <Results key={index} index={index + 1} title={article.title} clickHandler={this.findArticle} articleID={article.articleID} linktitle="Save Article" iconToShow="btn btn-primary resultsbutton" linktarget="_blank" url={article.url}/>
+                            <Results key={index} index={index + 1} title={article.title} clickHandler={this.findArticle} articleID={article.articleID} linktitle="Save Article" iconToShow="btn btn-default resultsbutton" linktarget="_blank" url={article.url}/>
                         ))}
                     </Column>
                 </Row>
+                </div>
             ): (
                 <div></div>
             )}
