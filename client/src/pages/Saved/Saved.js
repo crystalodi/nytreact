@@ -23,7 +23,6 @@ class Saved extends Component {
     }
     componentDidMount() {
         this.loadArticles();
-        console.log(this.state)
     }
     render() {
         return (
@@ -37,7 +36,7 @@ class Saved extends Component {
                 <Row>
                     <Column size="col-md-12">  
                         {this.state.articles.map((article, index) => (
-                            <Results key={index} index={index + 1} title={article.title} clickHandler={this.deleteFromSaved} articleID={article._id} linktitle="Remove Article From Saved" iconToShow="glyphicon glyphicon-remove saveicon pull-right"/>
+                            <Results key={index} index={index + 1} title={article.title} clickHandler={this.deleteFromSaved} articleID={article._id} linktitle="Remove" iconToShow="btn btn-danger resultsbutton" linktarget="_blank" url={article.url}/>
                         ))}
                     </Column>
                 </Row>

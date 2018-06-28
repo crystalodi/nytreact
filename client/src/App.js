@@ -4,6 +4,7 @@ import Jumbotron from "./components/Jumbotron";
 import Container from "./components/Container";
 import Home from "./pages/Home"
 import Saved from "./pages/Saved";
+import NoMatch from "./pages/NoMatch";
 class App extends Component {
   render() {
     return (
@@ -14,6 +15,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/articles" component={Home} />
           <Route exact path="/saved" component={Saved} />
+          <Route component={NoMatch} />
         </Switch>
       </Container>
     </Router>
