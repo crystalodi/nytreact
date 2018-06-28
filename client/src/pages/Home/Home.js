@@ -64,11 +64,11 @@ class Home extends Component {
                         </FormGroup>
                         <FormGroup>
                             <Label htmlFor="startYear">Start Year (Optional)</Label>
-                            <Input type="text" onChange={this.handleInputChange} id="startYear" name="startYear" placeholder="Start Year"/>
+                            <Input type="number" onChange={this.handleInputChange} id="startYear" name="startYear" placeholder="Start Year" min="1900"/>
                         </FormGroup>
                         <FormGroup>
                             <Label htmlFor="endYear">End Year (Optional)</Label>
-                            <Input type="text" onChange={this.handleInputChange} id="endYear" name="endYear" placeholder="End Year"/>
+                            <Input type="number" onChange={this.handleInputChange} id="endYear" name="endYear" placeholder="End Year" min="1900"/>
                         </FormGroup>
                         <Button onClick={this.handleFormSubmit} className="btn btn-primary">Submit</Button>
                     </form>
