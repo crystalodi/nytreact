@@ -22,8 +22,11 @@ class Home extends Component {
         event.preventDefault();
         console.log("about to search")
         const params = {
-            q: this.state.searchTerm
+            q: this.state.searchTerm,
+            begin_date: this.state.startYear !== "" ? `${this.state.startYear}0101` : "",
+            end_date: this.state.endYear !== "" ? `${this.state.endYear}0101` : ""
         }
+        console.log(params);
         API.articleSearch(params)
         .then(response=>this.setState({
             articles: response
