@@ -1,9 +1,9 @@
-# Eat The Burger
+# New York Times Search
 
-Eat The Burger is an app that allows you to add different types of burgers and then "devour" them later.
+New York Times Search that allows you to use the New York Times article search API to retrieve articles, view articles, and save them for viewing later.
 
 ## Live version
-Go [here](https://lit-hamlet-29799.herokuapp.com/) to view the app.
+Go [here](https://crystal-nyt-search.herokuapp.com/) to view the app.
 
 
 ## Getting Started
@@ -16,8 +16,9 @@ Install the following programs if they aren't on your local machine.
 
 Node (LTS) - http://nodejs.org
 
-MySQL Workbench - https://dev.mysql.com/downloads/workbench/
+Yarn Package Manager - https://yarnpkg.com/en/docs/install#windows-stable
 
+GIT - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
 ### Installing
 
@@ -27,23 +28,20 @@ Clone [this](https://github.com/crystalodi/burger.git) github repository to a fo
 git clone https://github.com/crystalodi/burger.git
 ```
 
-Navigate to the folder the repository was cloned into and run npm install to create the `node_modules` folder needed to run the application
+Navigate to the folder the repository was cloned into and run yarn install to create the `node_modules` folder needed to run the application
 
 ```
-cd burger
-npm install
+cd nytreact
+yarn install
 ```
-
-Open MySQL Workbench program installed in the Prerequisites section. Open schema.sql in `db` folder and execute the query. Do the same for `seeds.sql` located in the folder.
-
 
 Start the server and application
 
 ```
-npm start
+yarn start
 ```
 
-Open a web browser and type http://localhost:3000. Your should see this:
+Your default web browser should open to this url http://localhost:3000.
 
 
 ## About the Application
@@ -53,59 +51,57 @@ Open a web browser and type http://localhost:3000. Your should see this:
 The app utilizes the MVC (Model-View-Controller) design pattern to organize functionality. After following the steps in the Installation section, your folder should look like this:
 
 ```
-burger/
-  config/
-    connection.js
-    orm.js
-  controllers/
-    burgers_controller.js
-  db/
-    schema.sql
-    seeds.sql
-  models/
-    burger.js
-  node_modules/
-  public/
-      assets/
-        css/
-            burger_style.css
-        img/
-            burger.png
-        js/
-            burgers.js
-  views/
-      layouts/
-        main.handlebars
-      partials/
-        burgers/
-            burger-block.handlebars
-    index.handlebars
-  .gitignore
-  package.json
-  README.md
-  server.js
+├── client
+├── controllers
+├── images
+├── models
+├── nodemon.json
+├── node_modules
+├── package.json
+├── Procfile
+├── README.md
+├── routes
+├── server.js
+└── yarn.lock
 ```
 
-```
-description of files here
-```
+* `/controllers` contains the routes used to save articles and remove articles. (Controller)
+* `/client` contains UI that displays articles and the logic to send Ajax requests when a button is clicked. (View)
+* `/models` contains the mongoose model used to create Articles collection in database, which will be used to save articles and retrieve saved articles. (Model)
+* `/routes` contains the api end points used to call routes in the `/controllers` folder. (Controller)
+* `server.js` Connects to the mongo database and imports routes file from `/routes` folder.
 
 
 ## How to Use
 
-### Add a burger
+### Search For Articles
+<img src="https://raw.githubusercontent.com/crystalodi/nytreact/master/images/home.png">
 
-### Eat a Burger
+Using the nav bar navigate to the home page. Enter a search term and press search.
+
+<img src="https://raw.githubusercontent.com/crystalodi/nytreact/master/images/article_search_results.png">
+
+
+### Save an Article
+While still on the home page, press the save button found under article search results.
+
+
+
+### Remove Article from Saved Articles
+Using the navbar navigate to the Saved Articles by pressing Saved.
+Click the red "Remove" button.
+
+<img src="https://raw.githubusercontent.com/crystalodi/nytreact/master/images/remove_from_saved.png">
 
 
 ## Built With
 
 * [NodeJS](https://nodejs.org/) - The web framework used
 * [Express](https://expressjs.com/) - Used to create web server
-* [Express Handlebars](https://www.npmjs.com/package/express-handlebars/) - Used to generate layout
-* [Materialize CSS](https://materializecss.com/) - CSS Framework used to add styling to layout.
+* [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+* [Bootstrap](https://materializecss.com/) - CSS Framework used to add styling to layout.
 * [Body Parser](https://www.npmjs.com/package/body-parser) - Middleware for parsing body sent for POST requests.
-* [MySQL](https://www.npmjs.com/package/mysql) - Node Package used to query MySQL database
+* [Mongoose](http://mongoosejs.com/) - used to create models that represent collections in a mongo database.
 
 ## Authors
 
