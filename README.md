@@ -110,5 +110,6 @@ Click the red "Remove" button.
 
 ## Acknowledgments
 
-* MySQL Documentation
+* Mongoose Documentation
+* React Documentation
 
