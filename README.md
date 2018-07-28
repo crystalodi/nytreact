@@ -22,10 +22,10 @@ GIT - https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
 ### Installing
 
-Clone [this](https://github.com/crystalodi/burger.git) github repository to a folder on your computer using a command line program.
+Clone [this](https://github.com/crystalodi/nytreact.git) github repository to a folder on your computer using a command line program.
 
 ```
-git clone https://github.com/crystalodi/burger.git
+git clone https://github.com/crystalodi/nytreact.git
 ```
 
 Navigate to the folder the repository was cloned into and run yarn install to create the `node_modules` folder needed to run the application
